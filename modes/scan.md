@@ -38,7 +38,7 @@ node boss-scan.mjs --dry-run
 
 ## BOSS 直聘
 
-用户自行登录。Codex 只读取页面可见 JD，不点击沟通、投递、发送，不绕验证码。
+用户自行登录。Codex 只读取页面可见 JD，不点击沟通、投递、发送。
 
 `boss-login.mjs` 打开可见浏览器，让用户手动登录并保存 BOSS Cookie 到 `.career-ops/boss-cookies.json`。如果浏览器登录助手不可用，可用 `--manual` 粘贴 Cookie JSON。
 

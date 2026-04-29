@@ -45,7 +45,6 @@ npm run doctor
 - 登录入口：`npm run boss-login`，Cookie 保存到 `.career-ops/boss-cookies.json`；如需手动粘贴 Cookie，使用 `npm run boss-login -- --manual`。
 - 扫描入口：`npm run boss-scan -- --limit 5`，或 `npm run boss-scan -- --url "<boss-url>" --limit 5`。
 - 扫描默认限 5 条、随机等待 2-5 秒；遇到登录失效、安全验证、403、异常跳转立即停止。
-- 不绕验证码，不自动开聊，不自动投递。
 - 如果页面不可读，改用 `node scan.mjs --file urls.txt` 或 `node scan.mjs --urls "url1;url2"` 导入 URL。
 
 ## 验证
