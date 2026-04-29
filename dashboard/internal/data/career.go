@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"cn-dev-career-ops/dashboard/internal/model"
+	"programmer-career-assistant/dashboard/internal/model"
 )
 
 var (

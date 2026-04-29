@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * doctor.mjs - setup validation for 大陆程序员求职助手.
+ * doctor.mjs - setup validation for 程序员求职助手.
  */
 
 import { existsSync, mkdirSync, readdirSync } from 'fs';
@@ -61,7 +61,7 @@ function checkAutoDir(name) {
 }
 
 async function main() {
-  console.log('\n大陆程序员求职助手 doctor');
+  console.log('\n程序员求职助手 doctor');
   console.log('==========================\n');
 
   const checks = [

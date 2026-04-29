@@ -1,4 +1,4 @@
-module cn-dev-career-ops/dashboard
+module programmer-career-assistant/dashboard
 
 go 1.24.2
 

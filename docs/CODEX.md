@@ -1,6 +1,6 @@
 # Codex 使用说明
 
-大陆程序员求职助手只支持 Codex。Codex 应读取根目录 `AGENTS.md`，并复用仓库内的 modes、脚本、模板和 tracker 流程。
+程序员求职助手只支持 Codex。Codex 应读取根目录 `AGENTS.md`，并复用仓库内的 modes、脚本、模板和 tracker 流程。
 
 ## 环境要求
 

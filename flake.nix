@@ -1,5 +1,5 @@
 {
-  description = "cn-dev-career-ops - Codex job search assistant for mainland China";
+  description = "programmer-career-assistant - Codex job search assistant for programmers";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

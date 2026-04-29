@@ -1,7 +1,11 @@
 {
-  "name": "cn-dev-career-ops",
+  "name": "programmer-career-assistant",
   "version": "1.0.0",
-  "description": "Codex-only job search assistant for software engineers in mainland China",
+  "description": "Codex-only job search assistant for programmers on Chinese hiring platforms",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/szj627/programmer-career-assistant.git"
+  },
   "scripts": {
     "doctor": "node doctor.mjs",
     "verify": "node verify-pipeline.mjs",
@@ -17,7 +21,7 @@
   "keywords": [
     "codex",
     "job-search",
-    "china",
+    "programmer",
     "developer",
     "ats"
   ],

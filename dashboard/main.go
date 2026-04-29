@@ -9,10 +9,10 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 
-	"cn-dev-career-ops/dashboard/internal/data"
-	"cn-dev-career-ops/dashboard/internal/model"
-	"cn-dev-career-ops/dashboard/internal/theme"
-	"cn-dev-career-ops/dashboard/internal/ui/screens"
+	"programmer-career-assistant/dashboard/internal/data"
+	"programmer-career-assistant/dashboard/internal/model"
+	"programmer-career-assistant/dashboard/internal/theme"
+	"programmer-career-assistant/dashboard/internal/ui/screens"
 )
 
 type viewState int

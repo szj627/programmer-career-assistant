@@ -47,7 +47,7 @@ function fileExists(path) {
   return existsSync(join(ROOT, path));
 }
 
-console.log('\n大陆程序员求职助手 test suite\n');
+console.log('\n程序员求职助手 test suite\n');
 
 console.log('1. JavaScript syntax');
 const mjsFiles = readdirSync(ROOT).filter(f => f.endsWith('.mjs'));
@@ -104,7 +104,7 @@ for (const file of removedFiles) {
 }
 
 console.log('\n4. URL importer');
-const tempDir = mkdtempSync(join(tmpdir(), 'cn-dev-career-ops-'));
+const tempDir = mkdtempSync(join(tmpdir(), 'programmer-career-assistant-'));
 const urlsFile = join(tempDir, 'urls.txt');
 writeFileSync(urlsFile, [
   '# comment',

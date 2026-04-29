@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"cn-dev-career-ops/dashboard/internal/model"
-	"cn-dev-career-ops/dashboard/internal/theme"
+	"programmer-career-assistant/dashboard/internal/model"
+	"programmer-career-assistant/dashboard/internal/theme"
 )
 
 func tabIndexForFilter(t *testing.T, filter string) int {

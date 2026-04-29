@@ -9,9 +9,9 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"cn-dev-career-ops/dashboard/internal/data"
-	"cn-dev-career-ops/dashboard/internal/model"
-	"cn-dev-career-ops/dashboard/internal/theme"
+	"programmer-career-assistant/dashboard/internal/data"
+	"programmer-career-assistant/dashboard/internal/model"
+	"programmer-career-assistant/dashboard/internal/theme"
 )
 
 // PipelineClosedMsg is emitted when the pipeline screen is dismissed.
@@ -860,7 +860,7 @@ func (m PipelineModel) renderHelp() string {
 				keyStyle.Render("Esc") + descStyle.Render(" cancel"))
 	}
 
-	brand := lipgloss.NewStyle().Foreground(m.theme.Overlay).Render("大陆程序员求职助手")
+	brand := lipgloss.NewStyle().Foreground(m.theme.Overlay).Render("程序员求职助手")
 
 	keys := keyStyle.Render("↑↓/jk") + descStyle.Render(" nav  ") +
 		keyStyle.Render("←→/hl") + descStyle.Render(" tabs  ") +

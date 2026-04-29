@@ -23,7 +23,7 @@ mkdirSync('data', { recursive: true });
 
 function usage(exitCode = 0) {
   const out = [
-    '大陆程序员求职助手 URL 导入器',
+    '程序员求职助手 URL 导入器',
     '',
     'Usage:',
     '  node scan.mjs --file urls.txt',
