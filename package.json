@@ -15,6 +15,7 @@
     "pdf": "node generate-pdf.mjs",
     "sync-check": "node cv-sync-check.mjs",
     "liveness": "node check-liveness.mjs",
+    "boss-login": "node boss-login.mjs",
     "boss-scan": "node boss-scan.mjs",
     "scan": "node scan.mjs",
     "test": "node test-all.mjs"

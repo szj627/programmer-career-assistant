@@ -41,8 +41,10 @@ npm run doctor
 
 ```bash
 npm run doctor
+npm run boss-login
 npm run boss-scan -- --limit 5
-npm run boss-scan -- --headless --url "https://www.zhipin.com/web/geek/job" --limit 5
+npm run boss-scan -- --url "https://www.zhipin.com/web/geek/jobs" --limit 5
+npm run boss-scan -- --dry-run
 npm run scan -- --file urls.txt
 npm run scan -- --urls "https://www.zhipin.com/job_detail/a.html;https://www.zhipin.com/job_detail/b.html"
 npm run verify
@@ -74,22 +76,21 @@ node scan.mjs --urls "url1;url2;url3"
 
 ## BOSS 直聘流程
 
-BOSS 直聘第一阶段采用半自动浏览器模式：
+BOSS 直聘采用 Cookie 登录助手 + 只读扫描：
 
-1. 用户自行登录 BOSS 直聘。
-2. 运行 `npm run boss-scan -- --limit 5` 打开可见 Chromium。
-3. 用户打开岗位列表页或详情页后，在终端按 Enter。
-4. 脚本读取页面可见 JD，保存到 `jds/`，并将 URL 导入 `data/pipeline.md`。
+1. 运行 `npm run boss-login`，在打开的浏览器里手动登录 BOSS。
+2. 登录完成后回到终端按 Enter，Cookie 会保存到 `.career-ops/boss-cookies.json`。
+3. 运行 `npm run boss-scan -- --limit 5` 扫描默认岗位页，或用 `--url` 指定列表页/详情页。
+4. 脚本只读取页面可见 JD、页面 Vue 状态或 `job/detail.json` 响应，保存到 `jds/`，并将 URL 导入 `data/pipeline.md`。
 5. Codex 按 `modes/oferta.md` 生成中文评估、简历建议和 tracker 条目。
-6. 如果页面无法稳定读取，退回批量 URL 导入。
 
-已登录后可以后台运行：
+如果自动登录助手无法稳定打开 BOSS，可以手动粘贴 Cookie：
 
 ```bash
-npm run boss-scan -- --headless --url "https://www.zhipin.com/web/geek/job" --limit 5
+npm run boss-login -- --manual
 ```
 
-后台模式只复用已保存登录态；如果遇到登录、验证码或安全验证，需要先切回可见模式处理。
+扫描默认每次最多 5 条，每条之间随机等待 2-5 秒。遇到登录失效、安全验证、403 或异常跳转会立即停止，不重试、不继续扫。如果页面不可读，退回复制 JD 文本或批量 URL 导入。
 
 禁止行为：
 

@@ -33,7 +33,7 @@ npm run doctor
 | JD URL 或 JD 文本 | `modes/_shared.md` + `modes/auto-pipeline.md` |
 | 单个职位评估 | `modes/_shared.md` + `modes/oferta.md` |
 | URL 导入或扫描 | `modes/_shared.md` + `modes/scan.md` |
-| BOSS 半自动扫描 | `boss-scan.mjs` + `modes/scan.md` |
+| BOSS 半自动扫描 | `boss-login.mjs` + `boss-scan.mjs` + `modes/scan.md` |
 | pipeline 处理 | `modes/_shared.md` + `modes/pipeline.md` |
 | 中文 ATS PDF | `modes/_shared.md` + `modes/pdf.md` |
 | 申请辅助 | `modes/_shared.md` + `modes/apply.md` |
@@ -41,9 +41,10 @@ npm run doctor
 
 ## 平台规则
 
-- BOSS 直聘采用半自动浏览器模式：用户自行登录，Codex 只读取页面可见 JD。
-- 命令入口：`npm run boss-scan -- --limit 5`。脚本打开可见 Chromium，用户登录并打开列表页或详情页后按 Enter，脚本保存 JD 到 `jds/` 并导入 pipeline。
-- 后台入口：`npm run boss-scan -- --headless --url "https://www.zhipin.com/web/geek/job" --limit 5`。只复用已保存登录态；遇到登录、验证码或安全验证时切回可见模式。
+- BOSS 直聘采用 Cookie 登录助手 + 只读扫描：用户自行登录，Codex 只读取页面可见 JD。
+- 登录入口：`npm run boss-login`，Cookie 保存到 `.career-ops/boss-cookies.json`；如需手动粘贴 Cookie，使用 `npm run boss-login -- --manual`。
+- 扫描入口：`npm run boss-scan -- --limit 5`，或 `npm run boss-scan -- --url "<boss-url>" --limit 5`。
+- 扫描默认限 5 条、随机等待 2-5 秒；遇到登录失效、安全验证、403、异常跳转立即停止。
 - 不绕验证码，不自动开聊，不自动投递。
 - 如果页面不可读，改用 `node scan.mjs --file urls.txt` 或 `node scan.mjs --urls "url1;url2"` 导入 URL。
 

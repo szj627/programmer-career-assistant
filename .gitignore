@@ -35,6 +35,7 @@ bun.lock
 .DS_Store
 .idea/
 .playwright/
+.career-ops/
 career-dashboard
 *.mov
 *.mp4
