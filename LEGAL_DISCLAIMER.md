@@ -1,72 +1,36 @@
-# Legal Disclaimer & Acceptable Use
+# 免责声明
 
-## 1. Nature of the Project
+大陆程序员求职助手是本地开源工具，不是托管服务，也不是招聘中介。
 
-`career-ops` is a collection of Markdown prompts, Node.js scripts, and HTML templates. It is strictly a local execution tool. The maintainers do not host, deploy, or operate an AI system, nor do we provide API access to Large Language Models (LLMs).
+## 数据与 AI 服务
 
-Users download the code, run it on their own machines, and connect it to their own AI provider (Anthropic, OpenAI, or any other). The maintainers have no visibility into, control over, or responsibility for how the tool is used after download.
+- 你的简历、联系方式、JD、评估报告和申请记录保存在本机。
+- 当你使用 Codex 时，相关上下文可能会发送给你配置的 AI 服务商。
+- 请自行阅读并确认 AI 服务商的隐私政策和数据使用条款。
 
-## 2. Data Privacy (GDPR)
+## 招聘平台
 
-The maintainers do not act as a Data Controller or Data Processor under GDPR or any other data protection regulation.
+本项目面向 BOSS 直聘等中国大陆招聘平台的半自动辅助场景。
 
-- All Personal Identifiable Information (PII) you input — CVs, contact details, career history — is processed locally on your machine.
-- When you use an AI CLI tool (Claude Code, Codex, OpenCode), your data is sent directly to the AI provider you chose. Review their privacy policies.
-- We do not collect analytics, telemetry, or usage data of any kind.
-- API keys, credentials, and personal files are gitignored by default. Never commit them to a public fork.
+你必须遵守平台服务条款：
 
-## 3. AI Model Behavior
+- 不绕验证码
+- 不规避登录或风控
+- 不自动开聊
+- 不自动发送消息
+- 不自动投递
+- 不批量骚扰招聘方
 
-This tool interfaces with AI models via third-party CLI tools. The maintainers do not control these models and cannot guarantee their behavior.
+Codex 只能读取用户已登录后可见的页面内容，并生成供用户审查的材料。
 
-- **Hallucinations:** AI models may fabricate skills, job history, qualifications, or company information. You must manually verify all generated documents before submitting them to an employer.
-- **Safety guardrails:** The default prompts instruct the AI never to auto-submit applications and to stop before the final send/apply action. However, AI compliance is not guaranteed. If you use different models, modify the system prompts, or override the safety instructions, you accept full responsibility for the AI's actions.
-- **Evaluation accuracy:** Job offer scores and recommendations are AI-generated opinions based on pattern matching, not professional career advice. They should inform your judgment, not replace it.
+## 内容准确性
 
-## 4. Third-Party Platforms
+AI 生成的评估、简历和申请回答可能出错。提交前必须人工审查：
 
-career-ops interacts with career portals and job boards (Greenhouse, Lever, Ashby, Workday, and others).
+- 不得编造工作经历、项目、指标、学历、证书或薪资。
+- JD 未写明的信息应标记为 `未说明/需确认`，不能当作负面事实。
+- 简历关键词必须来自真实经历和 JD 明确要求。
 
-- Users must comply with the Terms of Service of every platform they interact with.
-- Do not use this tool to scrape platforms that prohibit automated access.
-- Do not use this tool to spam employers, overwhelm ATS systems, or submit mass applications.
-- Any consequences from ToS violations — including IP bans, account restrictions, or legal action from platforms — are solely the responsibility of the user.
-- The maintainers actively reject contributions that facilitate ToS violations (see CONTRIBUTING.md).
+## 结果不保证
 
-## 5. Acceptable Use
-
-career-ops is designed to help individuals make better career decisions, not to automate away human judgment. Acceptable use includes:
-
-- Evaluating job offers to prioritize your time
-- Generating tailored CVs that you review and edit before submitting
-- Scanning public career pages for open positions
-- Tracking your application pipeline
-
-Unacceptable use includes:
-
-- Auto-submitting applications without human review
-- Scraping platforms that prohibit automated access
-- Submitting AI-generated content without verifying its accuracy
-- Using the tool to discriminate, deceive, or misrepresent qualifications
-
-## 6. EU AI Act
-
-Because this tool runs locally, is free, and is open-source, the maintainers are not placing an AI system on the market or putting one into service under the EU AI Act. Users who deploy the tool in a commercial or organizational context should assess their own obligations under the AI Act.
-
-## 7. Indemnification
-
-By using career-ops, you agree to indemnify, defend, and hold harmless the authors, contributors, and any affiliated parties from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from your use of this software, your violation of these terms, or your violation of any third-party terms of service.
-
-## 8. Cost Responsibility
-
-If you use paid AI providers (Anthropic API, OpenAI API, etc.), you are solely responsible for monitoring and managing your own token usage and associated costs. The maintainers are not responsible for unexpected charges.
-
-## 9. MIT License
-
-As stated in the [LICENSE](LICENSE) file:
-
-> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## 10. Changes
-
-This disclaimer may be updated as the project evolves. Users are encouraged to review it periodically.
+本项目不保证面试、录用、薪资或任何就业结果。使用者自行承担因使用本工具产生的风险。

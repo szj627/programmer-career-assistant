@@ -1,5 +1,5 @@
 {
-  description = "career-ops - AI job search pipeline";
+  description = "cn-dev-career-ops - Codex job search assistant for mainland China";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

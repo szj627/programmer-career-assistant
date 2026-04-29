@@ -1,48 +1,53 @@
-# CV -- Alex Chen
+# 张三
 
-**Location:** Austin, TX
-**Email:** alex@example.com
-**LinkedIn:** linkedin.com/in/alexchen
-**Portfolio:** alexchen.dev
-**GitHub:** github.com/alexchen
+**电话:** 13800000000
+**邮箱:** zhangsan@example.com
+**位置:** 中国大陆
+**GitHub:** https://github.com/example
+**作品集:** https://example.dev
 
-## Professional Summary
+## 个人概要
 
-Full-stack AI engineer with 6 years building production ML systems. Led the ML platform at a Series B fintech (2020-2024), scaling from 2 models to 15+ in production. Built real-time fraud detection (99.7% precision, $2M/year saved), recommendation engine (18% uplift), and an internal MLOps platform serving 4 engineering teams.
+软件工程师，关注 Agent 应用、全栈产品交付和后端系统建设。具备从需求分析、架构设计、接口开发、前端实现到上线运维的完整交付经验。
 
-## Work Experience
+## 工作经历
 
-### TechFin Corp -- Austin, TX
-**Senior ML Engineer / ML Platform Lead**
-2020-2024
+### 某科技公司 | 全栈工程师
 
-- Led ML platform team (3 engineers), built internal MLOps tooling: model registry, A/B testing framework, feature store
-- Designed real-time fraud detection pipeline: Kafka → feature computation → model inference → decision engine. 99.7% precision at 50ms p99
-- Built recommendation engine for lending products: collaborative filtering + LLM reranking. 18% conversion uplift
-- Reduced model deployment time from 2 weeks to 4 hours with CI/CD pipeline (GitHub Actions + SageMaker)
-- Established model monitoring: drift detection, performance dashboards (Grafana), automated retraining triggers
+2022.07 - 至今
 
-### DataStartup Inc -- Remote
-**ML Engineer**
-2018-2020
+- 负责业务系统的后端 API、数据库建模和前端页面开发，支持核心业务流程线上运行。
+- 设计并落地基于大模型的内部效率工具，覆盖知识检索、任务分发和结果汇总。
+- 建立接口文档、错误码规范和基础监控，降低跨团队联调成本。
 
-- Built NLP pipeline for document classification (BERT fine-tuning, 94% accuracy on legal docs)
-- Implemented search ranking with learning-to-rank models
-- Set up experiment tracking with MLflow and model versioning
+### 某软件公司 | 后端工程师
 
-## Projects
+2020.07 - 2022.06
 
-- **FraudShield** (Open Source) -- Real-time fraud detection framework. Kafka Streams + feature store + model serving. 500+ GitHub stars
-- **LLM Eval Toolkit** (Open Source) -- Evaluation framework for LLM applications. Supports custom metrics, regression testing, CI integration
+- 参与订单、权限、消息等服务开发，维护高频业务接口。
+- 优化数据库索引和缓存策略，改善接口响应时间。
+- 编写单元测试和发布脚本，提升版本交付稳定性。
 
-## Education
+## 项目经历
 
-- MS Computer Science, UT Austin (2018)
-- BS Computer Science, UC Berkeley (2016)
+### Agent 工单助手
 
-## Skills
+- 基于大模型、工具调用和知识库检索构建工单处理助手。
+- 支持问题分类、上下文摘要、候选方案生成和人工确认。
+- 技术栈：Python、FastAPI、PostgreSQL、Redis、React。
 
-- **ML/AI:** PyTorch, TensorFlow, scikit-learn, Hugging Face, LangChain
-- **MLOps:** SageMaker, MLflow, Kubeflow, Airflow, Feature Store
-- **Infra:** Kubernetes, Kafka, Redis, PostgreSQL, AWS
-- **Languages:** Python, Go, TypeScript, SQL
+### 管理后台
+
+- 负责权限、审批、数据看板和配置管理模块。
+- 技术栈：Java、Spring Boot、MySQL、Vue。
+
+## 教育经历
+
+某大学 | 计算机科学与技术 | 本科
+
+## 技能
+
+- 后端：Java、Python、Node.js、REST API、消息队列、缓存
+- 前端：React、Vue、TypeScript
+- Agent/AI：RAG、工具调用、工作流编排、提示词工程
+- 工程化：Git、Docker、CI/CD、日志、监控

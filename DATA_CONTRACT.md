@@ -1,69 +1,73 @@
 # Data Contract
 
-This document defines which files belong to the **system** (auto-updatable) and which belong to the **user** (never touched by updates).
+本项目分为用户数据层和系统层。用户数据层不应被批量重写；系统层可以随项目改造而修改。
 
-## User Layer (NEVER auto-updated)
+## 用户数据层
 
-These files contain your personal data, customizations, and work product. Updates will NEVER modify them.
+这些文件保存用户简历、偏好和求职数据：
 
-| File | Purpose |
-|------|---------|
-| `cv.md` | Your CV in markdown |
-| `config/profile.yml` | Your identity, targets, comp range |
-| `modes/_profile.md` | Your archetypes, narrative, negotiation scripts |
-| `article-digest.md` | Your proof points from portfolio |
-| `interview-prep/story-bank.md` | Your accumulated STAR+R stories |
-| `portals.yml` | Your customized company list |
-| `data/applications.md` | Your application tracker |
-| `data/pipeline.md` | Your URL inbox |
-| `data/scan-history.tsv` | Your scan history |
-| `data/follow-ups.md` | Your follow-up history |
-| `reports/*` | Your evaluation reports |
-| `output/*` | Your generated PDFs |
-| `jds/*` | Your saved job descriptions |
+| 路径 | 说明 |
+| --- | --- |
+| `cv.md` | 中文简历事实来源 |
+| `config/profile.yml` | 候选人联系方式、目标岗位、偏好 |
+| `modes/_profile.md` | 个性化补充规则 |
+| `article-digest.md` | 项目、文章、案例的证明材料 |
+| `data/pipeline.md` | 待处理 JD URL |
+| `data/applications.md` | 申请 tracker |
+| `data/scan-history.tsv` | URL 导入历史 |
+| `reports/` | 中文职位评估报告 |
+| `output/` | 生成的中文 ATS 简历 |
+| `jds/` | 本地保存的 JD 文本 |
 
-## System Layer (safe to auto-update)
+## 系统层
 
-These files contain system logic, scripts, templates, and instructions that improve with each release.
+这些文件定义 Codex 工作流、脚本、模板和校验逻辑：
 
-| File | Purpose |
-|------|---------|
-| `modes/_shared.md` | Scoring system, global rules, tools |
-| `modes/oferta.md` | Evaluation mode instructions |
-| `modes/pdf.md` | PDF generation instructions |
-| `modes/scan.md` | Portal scanner instructions |
-| `modes/batch.md` | Batch processing instructions |
-| `modes/apply.md` | Application assistant instructions |
-| `modes/auto-pipeline.md` | Auto-pipeline instructions |
-| `modes/contacto.md` | LinkedIn outreach instructions |
-| `modes/deep.md` | Research prompt instructions |
-| `modes/ofertas.md` | Comparison instructions |
-| `modes/pipeline.md` | Pipeline processing instructions |
-| `modes/project.md` | Project evaluation instructions |
-| `modes/tracker.md` | Tracker instructions |
-| `modes/training.md` | Training evaluation instructions |
-| `modes/patterns.md` | Pattern analysis instructions |
-| `modes/followup.md` | Follow-up cadence instructions |
-| `modes/de/*` | German language modes |
-| `modes/fr/*` | French language modes |
-| `modes/ja/*` | Japanese language modes |
-| `modes/pt/*` | Portuguese language modes |
-| `modes/ru/*` | Russian language modes |
-| `CLAUDE.md` | Agent instructions |
-| `AGENTS.md` | Codex instructions |
-| `*.mjs` | Utility scripts |
-| `batch/batch-prompt.md` | Batch worker prompt |
-| `batch/batch-runner.sh` | Batch orchestrator |
-| `dashboard/*` | Go TUI dashboard |
-| `templates/*` | Base templates |
-| `fonts/*` | Self-hosted fonts |
-| `.claude/skills/*` | Skill definitions |
-| `docs/*` | Documentation |
-| `VERSION` | Current version number |
-| `DATA_CONTRACT.md` | This file |
+| 路径 | 说明 |
+| --- | --- |
+| `AGENTS.md` | Codex 行为规则 |
+| `docs/CODEX.md` | Codex 使用说明 |
+| `modes/_shared.md` | 全局求职规则 |
+| `modes/oferta.md` | 单职位评估规则 |
+| `modes/auto-pipeline.md` | JD URL 自动流程 |
+| `modes/scan.md` | BOSS/URL 导入流程 |
+| `modes/pipeline.md` | pipeline 处理规则 |
+| `modes/batch.md` | 批量处理规则 |
+| `modes/pdf.md` | 中文 ATS 简历规则 |
+| `modes/apply.md` | 申请表辅助规则 |
+| `modes/tracker.md` | tracker 查看和更新规则 |
+| `scan.mjs` | URL 导入器 |
+| `generate-pdf.mjs` | HTML 转 PDF |
+| `merge-tracker.mjs` | 合并 tracker additions |
+| `verify-pipeline.mjs` | tracker 健康检查 |
+| `templates/` | 简历和状态模板 |
 
-## The Rule
+## 不再支持
 
-**If a file is in the User Layer, no update process may read, modify, or delete it.**
+- Claude、Gemini、OpenCode 集成
+- 公司官网扫描和 Greenhouse/Ashby/Lever API 扫描
+- 多语言 modes
+- 英文简历、LaTeX/Overleaf 简历路径
+- 海外薪资谈判、LinkedIn outreach、课程/项目评估模式
 
-**If a file is in the System Layer, it can be safely replaced with the latest version from the upstream repo.**
+## Tracker TSV
+
+每次评估新增申请时，先写入 `batch/tracker-additions/{num}-{slug}.tsv`：
+
+```text
+{num}\t{date}\t{company}\t{role}\t{status}\t{score}/5\t{pdf}\t[{num}](reports/{num}-{slug}-{date}.md)\t{note}
+```
+
+列顺序：
+
+1. `num`
+2. `date`
+3. `company`
+4. `role`
+5. `status`
+6. `score`
+7. `pdf`
+8. `report`
+9. `note`
+
+状态值必须使用 `templates/states.yml` 中的 canonical label。

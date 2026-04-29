@@ -5,7 +5,7 @@
  *
  * Tests whether job posting URLs are still active or have expired.
  * Uses the same detection logic as scan.md step 7.5.
- * Zero Claude API tokens — pure Playwright.
+ * Pure Playwright liveness checker.
  *
  * Usage:
  *   node check-liveness.mjs <url1> [url2] ...
@@ -24,7 +24,7 @@ async function checkUrl(page, url) {
 
     const status = response?.status() ?? 0;
 
-    // Give SPAs (Ashby, Lever, Workday) time to hydrate
+    // Give SPA pages time to hydrate.
     await page.waitForTimeout(2000);
 
     const finalUrl = page.url();

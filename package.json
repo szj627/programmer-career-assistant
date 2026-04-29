@@ -1,7 +1,7 @@
 {
-  "name": "career-ops",
+  "name": "cn-dev-career-ops",
   "version": "1.0.0",
-  "description": "AI-powered job search pipeline built on Claude Code",
+  "description": "Codex-only job search assistant for software engineers in mainland China",
   "scripts": {
     "doctor": "node doctor.mjs",
     "verify": "node verify-pipeline.mjs",
@@ -10,31 +10,19 @@
     "merge": "node merge-tracker.mjs",
     "pdf": "node generate-pdf.mjs",
     "sync-check": "node cv-sync-check.mjs",
-    "update:check": "node update-system.mjs check",
-    "update": "node update-system.mjs apply",
-    "rollback": "node update-system.mjs rollback",
     "liveness": "node check-liveness.mjs",
     "scan": "node scan.mjs",
-    "gemini:eval": "node gemini-eval.mjs"
+    "test": "node test-all.mjs"
   },
   "keywords": [
-    "ai",
+    "codex",
     "job-search",
-    "claude-code",
-    "career",
-    "automation"
+    "china",
+    "developer",
+    "ats"
   ],
-  "author": "Santiago Fernández de Valderrama <hi@santifer.io> (https://santifer.io)",
-  "homepage": "https://santifer.io",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/santifer/career-ops"
-  },
   "license": "MIT",
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
-    "dotenv": "^16.4.5",
-    "js-yaml": "^4.1.1",
     "playwright": "^1.58.1"
   }
 }

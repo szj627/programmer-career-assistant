@@ -1,56 +1,51 @@
-# Career-Ops — Canonical States
-# Source of truth for career-ops (writer) and dashboard (reader).
-# Both systems MUST use these exact states.
-#
-# Rule: The status field in applications.md must contain EXACTLY
-# one of these values (case-insensitive). No markdown bold (**),
-# no dates, no extra text. Dates go in the date column.
+# Canonical tracker states.
+# Keep labels stable because scripts and dashboard read them.
 
 states:
   - id: evaluated
     label: Evaluated
-    aliases: [evaluada]
-    description: Offer evaluated with report, pending decision
+    aliases: [已评估, 评估完成]
+    description: 已完成职位评估，等待决定
     dashboard_group: evaluated
 
   - id: applied
     label: Applied
-    aliases: [aplicado, enviada, aplicada, sent]
-    description: Application submitted
+    aliases: [已投递, 已申请]
+    description: 用户已提交申请
     dashboard_group: applied
 
   - id: responded
     label: Responded
-    aliases: [respondido]
-    description: Company has responded (not yet interview)
+    aliases: [已回复, 有回应]
+    description: 招聘方已有回应，尚未进入面试
     dashboard_group: responded
 
   - id: interview
     label: Interview
-    aliases: [entrevista]
-    description: Active interview process
+    aliases: [面试中, 面试]
+    description: 正在面试流程中
     dashboard_group: interview
 
   - id: offer
     label: Offer
-    aliases: [oferta]
-    description: Offer received
+    aliases: [收到 offer, offer]
+    description: 已收到 offer
     dashboard_group: offer
 
   - id: rejected
     label: Rejected
-    aliases: [rechazado, rechazada]
-    description: Rejected by company
+    aliases: [已拒绝, 被拒]
+    description: 招聘方拒绝
     dashboard_group: rejected
 
   - id: discarded
     label: Discarded
-    aliases: [descartado, descartada, cerrada, cancelada]
-    description: Discarded by candidate or offer closed
+    aliases: [已放弃, 已关闭, 不考虑]
+    description: 用户放弃或岗位关闭
     dashboard_group: discarded
 
   - id: skip
     label: SKIP
-    aliases: [no_aplicar, no aplicar, skip, monitor]
-    description: Doesn't fit, don't apply
+    aliases: [跳过, 不投, 不建议投递]
+    description: 不匹配，不建议投递
     dashboard_group: skip

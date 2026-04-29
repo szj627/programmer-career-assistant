@@ -1,23 +1,37 @@
-# Modo: tracker — Tracker de Aplicaciones
+# Tracker 模式
 
-Lee y muestra `data/applications.md`.
+查看和更新 `data/applications.md`。
 
-**Formato del tracker:**
-```markdown
-| # | Fecha | Empresa | Rol | Score | Estado | PDF | Report |
+## Canonical status
+
+status 字段必须使用：
+
+- `Evaluated`
+- `Applied`
+- `Responded`
+- `Interview`
+- `Offer`
+- `Rejected`
+- `Discarded`
+- `SKIP`
+
+中文含义见 `templates/states.yml`。
+
+## 允许操作
+
+- 查看申请总数、状态分布、最近评估。
+- 更新已有行的状态或备注。
+- 标记已投递、面试、拒绝、放弃。
+
+## 禁止操作
+
+- 不直接新增申请行。
+- 新增申请必须先写 TSV 到 `batch/tracker-additions/`，再运行 `node merge-tracker.mjs`。
+
+## 检查
+
+更新后运行：
+
+```bash
+node verify-pipeline.mjs
 ```
-
-Estados posibles: `Evaluada` → `Aplicado` → `Respondido` → `Contacto` → `Entrevista` → `Oferta` / `Rechazada` / `Descartada` / `NO APLICAR`
-
-- `Aplicado` = el candidato envió su candidatura
-- `Respondido` = Un recruiter/empresa contactó y el candidato respondió (inbound)
-- `Contacto` = El candidato contactó proactivamente a alguien de la empresa (outbound, ej: LinkedIn power move)
-
-Si el usuario pide actualizar un estado, editar la fila correspondiente.
-
-Mostrar también estadísticas:
-- Total de aplicaciones
-- Por estado
-- Score promedio
-- % con PDF generado
-- % con report generado
