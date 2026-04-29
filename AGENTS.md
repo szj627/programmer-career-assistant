@@ -23,6 +23,7 @@
 - 用户粘贴 JD URL 或 JD 文本：读取 `modes/_shared.md` + `modes/auto-pipeline.md`。
 - 用户要求评估职位：读取 `modes/_shared.md` + `modes/oferta.md`。
 - 用户要求导入 URL：运行或参考 `scan.mjs` + `modes/scan.md`。
+- 用户要求半自动扫描 BOSS：运行或参考 `boss-scan.mjs` + `modes/scan.md`，再按 `modes/oferta.md` 评估保存的 JD。
 - 用户要求处理 pipeline：读取 `modes/_shared.md` + `modes/pipeline.md`。
 - 用户要求生成简历 PDF：读取 `modes/_shared.md` + `modes/pdf.md`。
 - 用户要求查看申请状态：读取 `modes/tracker.md`。
@@ -41,5 +42,6 @@
 
 ```bash
 node --check scan.mjs
+node --check boss-scan.mjs
 npm run verify
 ```

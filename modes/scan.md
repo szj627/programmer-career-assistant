@@ -8,6 +8,8 @@
 node scan.mjs --file urls.txt
 node scan.mjs --urls "url1;url2;url3"
 node scan.mjs --file urls.txt --dry-run
+node boss-scan.mjs --limit 5
+node boss-scan.mjs --headless --url "https://www.zhipin.com/web/geek/job" --limit 5
 ```
 
 ## 文件规则
@@ -34,3 +36,7 @@ node scan.mjs --file urls.txt --dry-run
 ## BOSS 直聘
 
 用户自行登录。Codex 只读取页面可见 JD，不点击沟通、投递、发送，不绕验证码。
+
+`boss-scan.mjs` 会打开可见 Chromium，并复用 `.playwright/boss-profile` 保存登录态。用户手动登录并打开岗位列表页或详情页后，脚本读取页面可见 JD，保存到 `jds/`，再通过 `scan.mjs` 将 URL 导入 `data/pipeline.md`。岗位评分和报告仍按 `modes/oferta.md` 由 Codex 完成，不在脚本里另建评分逻辑。
+
+如已保存登录态，可加 `--headless` 后台运行。后台模式不会处理登录、验证码或安全验证；遇到这些情况应退出并让用户先运行可见模式。

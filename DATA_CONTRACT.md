@@ -37,6 +37,7 @@
 | `modes/apply.md` | 申请表辅助规则 |
 | `modes/tracker.md` | tracker 查看和更新规则 |
 | `scan.mjs` | URL 导入器 |
+| `boss-scan.mjs` | BOSS 直聘半自动可见 JD 扫描器 |
 | `generate-pdf.mjs` | HTML 转 PDF |
 | `merge-tracker.mjs` | 合并 tracker additions |
 | `verify-pipeline.mjs` | tracker 健康检查 |

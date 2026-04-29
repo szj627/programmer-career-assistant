@@ -20,6 +20,7 @@ npm run doctor
 
 ```text
 评估这个 BOSS 直聘 JD，并生成中文报告和中文 ATS 简历。
+打开 BOSS 直聘，登录后扫描当前页面可见 JD。
 把 urls.txt 里的岗位 URL 导入 pipeline。
 处理 data/pipeline.md 里的待评估 URL。
 根据这个 JD 生成中文 ATS 简历 PDF。
@@ -32,6 +33,7 @@ npm run doctor
 | JD URL 或 JD 文本 | `modes/_shared.md` + `modes/auto-pipeline.md` |
 | 单个职位评估 | `modes/_shared.md` + `modes/oferta.md` |
 | URL 导入或扫描 | `modes/_shared.md` + `modes/scan.md` |
+| BOSS 半自动扫描 | `boss-scan.mjs` + `modes/scan.md` |
 | pipeline 处理 | `modes/_shared.md` + `modes/pipeline.md` |
 | 中文 ATS PDF | `modes/_shared.md` + `modes/pdf.md` |
 | 申请辅助 | `modes/_shared.md` + `modes/apply.md` |
@@ -40,6 +42,8 @@ npm run doctor
 ## 平台规则
 
 - BOSS 直聘采用半自动浏览器模式：用户自行登录，Codex 只读取页面可见 JD。
+- 命令入口：`npm run boss-scan -- --limit 5`。脚本打开可见 Chromium，用户登录并打开列表页或详情页后按 Enter，脚本保存 JD 到 `jds/` 并导入 pipeline。
+- 后台入口：`npm run boss-scan -- --headless --url "https://www.zhipin.com/web/geek/job" --limit 5`。只复用已保存登录态；遇到登录、验证码或安全验证时切回可见模式。
 - 不绕验证码，不自动开聊，不自动投递。
 - 如果页面不可读，改用 `node scan.mjs --file urls.txt` 或 `node scan.mjs --urls "url1;url2"` 导入 URL。
 

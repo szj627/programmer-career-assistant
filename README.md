@@ -41,6 +41,8 @@ npm run doctor
 
 ```bash
 npm run doctor
+npm run boss-scan -- --limit 5
+npm run boss-scan -- --headless --url "https://www.zhipin.com/web/geek/job" --limit 5
 npm run scan -- --file urls.txt
 npm run scan -- --urls "https://www.zhipin.com/job_detail/a.html;https://www.zhipin.com/job_detail/b.html"
 npm run verify
@@ -75,9 +77,19 @@ node scan.mjs --urls "url1;url2;url3"
 BOSS 直聘第一阶段采用半自动浏览器模式：
 
 1. 用户自行登录 BOSS 直聘。
-2. Codex 读取当前页面可见 JD。
-3. Codex 生成中文评估、简历建议和 tracker 条目。
-4. 如果页面无法稳定读取，退回批量 URL 导入。
+2. 运行 `npm run boss-scan -- --limit 5` 打开可见 Chromium。
+3. 用户打开岗位列表页或详情页后，在终端按 Enter。
+4. 脚本读取页面可见 JD，保存到 `jds/`，并将 URL 导入 `data/pipeline.md`。
+5. Codex 按 `modes/oferta.md` 生成中文评估、简历建议和 tracker 条目。
+6. 如果页面无法稳定读取，退回批量 URL 导入。
+
+已登录后可以后台运行：
+
+```bash
+npm run boss-scan -- --headless --url "https://www.zhipin.com/web/geek/job" --limit 5
+```
+
+后台模式只复用已保存登录态；如果遇到登录、验证码或安全验证，需要先切回可见模式处理。
 
 禁止行为：
 
